@@ -1,0 +1,107 @@
+//* node algo.ts
+
+//* 1. Бинарный поиск
+// const binarySearch = (length, target) => {
+//   const randomArr = [...new Array(length)].map(() =>
+//     Math.round(Math.random() * length)
+//   );
+//   const tempArr = randomArr.sort((a, b) => a - b);
+//   const uniqArr = Array.from(new Set(tempArr));
+
+//   let left = -1;
+//   let right = uniqArr.length;
+
+//   let count = 0;
+//   console.log(uniqArr);
+
+//   while (right - left > 1) {
+//     count++;
+//     const middle = Math.floor((left + right) / 2);
+
+//     if (target === uniqArr[middle]) {
+//       return {
+//         iteration: count,
+//         target,
+//         position: middle,
+//       };
+//     }
+
+//     if (target < uniqArr[middle]) {
+//       right = middle;
+//     } else {
+//       left = middle;
+//     }
+//   }
+
+//   return `Target: ${target} is not found!`;
+// };
+
+// console.log(binarySearch(99, 88));
+// ************************************************************
+
+//* 2. Сортировка выбором
+// const arr = [
+//   282, 49, 248, 260, 469, 425, 283, 343, 419, 140, 235, 265, 207, 266, 221, 48,
+//   259, 296, 10, 82, 91, 318, 143, 431, 186, 430, 376, 247, 33, 138, 382, 461,
+//   215, 195, 482, 194, 232, 358, 8, 387, 139, 106, 234, 426, 90, 441, 367, 208,
+//   291, 414, 137, 244, 156, 399, 182, 407, 460, 309, 463, 44, 234, 443, 227, 276,
+//   405, 461, 46, 175, 329, 254, 430, 79, 281, 149, 336, 120, 378, 480, 2, 148,
+//   298, 339, 153, 363, 417, 147, 89, 202, 346, 91, 437, 54, 313, 229, 374, 478,
+//   246,
+// ];
+
+// const findSmallestIndex = (array) => {
+//   let smallestIndex = 0;
+//   let smallestElement = array[smallestIndex];
+
+//   for (let i = 1; i < array.length; i++) {
+//     if (array[i] < smallestElement) {
+//       smallestElement = array[i];
+//       smallestIndex = i;
+//     }
+//   }
+
+//   return smallestIndex;
+// };
+
+// const selectionSort = (array) => {
+//   const sortedArray = [];
+//   const length = array.length;
+
+//   for (let i = 0; i < length; i++) {
+//     const smallestIndex = findSmallestIndex(array);
+//     const elem = array.splice(smallestIndex, 1)[0];
+//     sortedArray.push(elem);
+//   }
+
+//   return sortedArray;
+// };
+
+// console.log(selectionSort(arr));
+// ************************************************************
+
+//* 4. Быстрая сортировка
+// const mockArr = [
+//   282, 49, 248, 260, 469, 425, 283, 343, 419, 140, 235, 265, 207, 266, 221, 48,
+//   259, 296, 10, 82, 91, 318, 143, 431, 186, 430, 376, 247, 33, 138, 382, 461,
+//   215, 195, 482, 194, 232, 358, 8, 387, 139, 106, 234, 426, 90, 441, 367, 208,
+//   291, 414, 137, 244, 156, 399, 182, 407, 460, 309, 463, 44, 234, 443, 227, 276,
+//   405, 461, 46, 175, 329, 254, 430, 79, 281, 149, 336, 120, 378, 480, 2, 148,
+//   298, 339, 153, 363, 417, 147, 89, 202, 346, 91, 437, 54, 313, 229, 374, 478,
+//   246,
+// ];
+
+// const quickSort = (arr) => {
+//   if (arr.length <= 1) {
+//     return arr;
+//   }
+
+//   const pivot = arr[1];
+//   const less = arr.slice(1).filter((el) => el <= pivot);
+//   const greater = arr.slice(1).filter((el) => el > pivot);
+
+//   return quickSort(less).concat(pivot, quickSort(greater));
+// };
+
+// console.log(quickSort(mockArr));
+// ************************************************************
