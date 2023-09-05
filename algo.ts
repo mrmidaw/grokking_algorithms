@@ -105,3 +105,20 @@
 
 // console.log(quickSort(mockArr));
 // ************************************************************
+
+//* 5. ХЕШ-таблица
+// const votedTable = {};
+
+// const checkVoter = (name) => {
+//   if (votedTable[name]) {
+//     console.log("kick them out!");
+//   } else {
+//     votedTable[name] = true;
+//     console.log("let them vote!");
+//   }
+// };
+
+// checkVoter("tom");
+// checkVoter("mike");
+// checkVoter("mike");
+// ************************************************************
