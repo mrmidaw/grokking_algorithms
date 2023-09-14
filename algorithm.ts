@@ -1,4 +1,5 @@
-//* node algo.ts
+//* tsc algorithm.ts
+//* node algorithm.js
 
 //* 1. Бинарный поиск
 // const binarySearch = (length, target) => {
@@ -121,4 +122,52 @@
 // checkVoter("tom");
 // checkVoter("mike");
 // checkVoter("mike");
+// ************************************************************
+
+//* 6. Графы. Поиск в ширину
+interface Graph<T> {
+  [key: string]: T[];
+}
+
+const personIsSeller = (name: string): boolean => {
+  return name.endsWith("m");
+};
+
+const graph: Graph<string> = {};
+graph.you = ["alice", "bob", "claire"];
+graph.bob = ["anuj", "peggy"];
+graph.alice = ["peggy"];
+graph.claire = ["thom", "jonny"];
+graph.anuj = [];
+graph.peggy = [];
+graph.thom = [];
+graph.jonny = [];
+
+const search = (name: string): boolean => {
+  let searchQueue = graph[name];
+  //* С помощью этого массива вы можете отслеживать, каких людей вы искали раньше.
+  const searched = [];
+
+  console.log(searchQueue);
+
+  while (searchQueue.length > 0) {
+    const person = searchQueue.shift();
+    //* Ищите этого человека, только если вы еще не искали его
+    if (!searched.includes(person)) {
+      if (personIsSeller(person)) {
+        console.log(`${person} is a mango seller!`);
+        return true;
+      } else {
+        searchQueue = searchQueue.concat(graph[person]);
+        // Marks this person as searched
+        searched.push(person);
+      }
+    }
+  }
+
+  return false;
+};
+
+search("you");
+
 // ************************************************************
