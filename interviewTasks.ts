@@ -109,3 +109,128 @@
 
 // console.log(aClean(arr));
 // ************************************************************
+
+// ## Data Types
+
+// console.log(1 +  "2" + "2"); // "5" // 122
+
+// // console.log(1 +  +"2" + "2"); // "32"
+
+// console.log(true - 12); // -11
+
+// console.log(typeof /abc/); // ob
+
+// console.log(0.1 + 0.2 === 0.3);
+
+// console.log(0.1 + 0.2)
+// ## TS
+
+// interface User {
+//   name?: string;
+//   id?: number:
+//   role?: 'admin' | 'user';
+// }
+
+// type XXX<T> = (item: T[]): T
+
+// ### 1
+// const head = (array) => ...
+
+//const number = head([1,2,3]) // 1 - type number
+//const string = head(['1', '2', '3']) '1' - // type string
+
+// class Queue <T>{
+//     push: (value: T) => {
+
+//     }
+// }
+
+// // ### 2
+// const queue = new Queue<string>();
+
+// queue.push(0);
+// queue.push("1"); // TS: Error
+
+// ## Array
+
+// ### 1
+const sum = (arr1) => {
+  const tempArr = [];
+
+  arr1.fprEach((item) => {});
+};
+
+// const arr = [1,1, [1, [1, [1, [2]]]], [1]]
+// console.log(sum(arr))
+
+// ### 2
+// [1,2,3].map((a, b, c) => console.log(a, b, c))
+
+// // [1], 0, [1,2,3]
+// // [2], 1, [1,2,3]
+// // [3], 2, [1,2,3]
+
+// // ### 3
+// const list = [1,2,3,4,5,6,7,8]
+
+// const between = (num1, num2) => {
+//   return function (res) {
+//     console.log(res)
+
+//     return res > num1 && res < num2;
+//   }
+// }
+
+const filteredArray = list.filter(between(3, 6)); // [4,5]
+
+// console.log(filteredArray);
+
+// ## JS
+
+// ### 1
+// const mul = ?
+
+// console.log(mul(2)(3)(4)); // output : 24
+// console.log(mul(4)(3)(4)); // output : 48
+
+// ### 2
+// var arr1 = "john".split('');
+// var arr2 = arr1.reverse();
+
+// console.log(arr1)
+// console.log(arr2)
+
+// ### 3
+// var v = 0;
+// const v2 = a => b => [a,b].join('');
+// const v1 = v2(3);
+// v = v1(7);
+
+// console.log(v)
+
+// ## React
+
+// const Component = React.Memo( (params) => {
+//   const profile = useSomeContext();
+
+//   const info = useMemo(calculateInfo(params),[params]);
+
+//   const result = (<div onClick={() => console.log(info)}>
+//       {profile.name}
+//     </div>)
+
+//   return result
+// }, )
+
+// const Counter = () => {
+//   const [count, setCount] = useState(0);
+
+//   const clickHandler = () => {
+//     setCount(count + 1)
+//     setCount(count + 1)
+//     setCount(count + 1)
+//     setCount(count + 1)
+//   }
+
+//   return <button onClick={clickHandler}>{count}</button> // 1
+// }
