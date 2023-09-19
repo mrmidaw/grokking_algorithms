@@ -1,4 +1,4 @@
-//* node interviewTasks.ts
+//* node interviewTasks.js
 
 //* 1
 // console.log(typeof (function () {})());
@@ -110,127 +110,132 @@
 // console.log(aClean(arr));
 // ************************************************************
 
-// ## Data Types
+//* 9 Что выведет в консоль
+// console.log(1 + "2" + "2"); // "122"
 
-// console.log(1 +  "2" + "2"); // "5" // 122
-
-// // console.log(1 +  +"2" + "2"); // "32"
+// console.log(1 + +"2" + "2"); // "32"
 
 // console.log(true - 12); // -11
 
-// console.log(typeof /abc/); // ob
+// console.log(typeof /abc/); // тут regex - object
 
-// console.log(0.1 + 0.2 === 0.3);
+// console.log(0.1 + 0.2 === 0.3); // 0.30000000000000004 != 0.3
+// ************************************************************
 
-// console.log(0.1 + 0.2)
-// ## TS
-
+//* 10 Написать необязательный union тип для роли
 // interface User {
-//   name?: string;
-//   id?: number:
-//   role?: 'admin' | 'user';
+//   name: string;
+//   id: number:
+//   role: ??????
 // }
+// ************************************************************
 
-// type XXX<T> = (item: T[]): T
-
-// ### 1
-// const head = (array) => ...
-
-//const number = head([1,2,3]) // 1 - type number
-//const string = head(['1', '2', '3']) '1' - // type string
-
-// class Queue <T>{
-//     push: (value: T) => {
+//* 10 Протипизировать класс Queue, что бы в зависимости от пререданного типа в push
+// class Queue {
+//     push: (value) => {
 
 //     }
 // }
 
-// // ### 2
-// const queue = new Queue<string>();
+// const queue = new Queue<number>();
 
 // queue.push(0);
 // queue.push("1"); // TS: Error
+// ************************************************************
 
-// ## Array
+//* 11 Вывести сумму массива, flat нельзя использовать
+// const flattenArray = (arr) => {
+//   let result = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     const currentValue = arr[i];
+//     if (Array.isArray(currentValue)) {
+//       result = [...result, ...flattenArray(currentValue)];
+//     } else {
+//       if (currentValue != null) {
+//         result.push(currentValue);
+//       }
+//     }
+//   }
+//   return result;
+// };
 
-// ### 1
-const sum = (arr1) => {
-  const tempArr = [];
+// const sum = (arr1) => {
+//   const tempArr = flattenArray(arr1);
 
-  arr1.fprEach((item) => {});
-};
+//   return tempArr.reduce((acc, cur) => {
+//     return acc + cur;
+//   });
+// };
 
-// const arr = [1,1, [1, [1, [1, [2]]]], [1]]
-// console.log(sum(arr))
+// const arr = [1, 1, [1, [1, [1, [2]]]], [1]];
+// console.log(sum(arr));
+// ************************************************************
 
-// ### 2
-// [1,2,3].map((a, b, c) => console.log(a, b, c))
+//* 12 Что выведет в консоль?
+// [1, 2, 3].map((a, b, c) => console.log(a, b, c));
+// [1, 2, 3].map(console.log);
 
-// // [1], 0, [1,2,3]
-// // [2], 1, [1,2,3]
-// // [3], 2, [1,2,3]
+// Оба варианта равнозначны и выведут, что ниже
+// 1 0 [ 1, 2, 3 ]
+// 2 1 [ 1, 2, 3 ]
+// 3 2 [ 1, 2, 3 ]
+// ************************************************************
 
-// // ### 3
-// const list = [1,2,3,4,5,6,7,8]
+//* 13 Нужно написать функцию beetween которая выведет элементы между 3 и 6
+// const list = [1, 2, 3, 4, 5, 6, 7, 8];
 
 // const between = (num1, num2) => {
 //   return function (res) {
-//     console.log(res)
-
 //     return res > num1 && res < num2;
-//   }
-// }
+//   };
+// };
 
-const filteredArray = list.filter(between(3, 6)); // [4,5]
+// const filteredArray = list.filter(between(3, 6)); // [4,5]
 
 // console.log(filteredArray);
+// ************************************************************
 
-// ## JS
-
-// ### 1
-// const mul = ?
-
-// console.log(mul(2)(3)(4)); // output : 24
-// console.log(mul(4)(3)(4)); // output : 48
-
-// ### 2
-// var arr1 = "john".split('');
+//* 14 Что выведет в консоль
+// var arr1 = "john".split("");
 // var arr2 = arr1.reverse();
 
-// console.log(arr1)
-// console.log(arr2)
+// console.log(arr1); // ["n", "h", "o", "j"];
+// console.log(arr2); // ["n", "h", "o", "j"]; reverse мутирует изначальный массив
+// ************************************************************
 
-// ### 3
+//* 15 Что выведет в консоль
 // var v = 0;
-// const v2 = a => b => [a,b].join('');
+// const v2 = (a) => (b) => [a, b].join("");
 // const v1 = v2(3);
+// console.log(v1);
 // v = v1(7);
 
-// console.log(v)
+// console.log(v);
+// ************************************************************
 
-// ## React
-
-// const Component = React.Memo( (params) => {
+//* 16 Обернуть в HOC React.Memo и ответить во что оборачивать info в useMemo или useCallback
+// const Component = React.Memo((params) => {
 //   const profile = useSomeContext();
 
-//   const info = useMemo(calculateInfo(params),[params]);
+//   const info = useMemo(calculateInfo(params), [params]);
 
-//   const result = (<div onClick={() => console.log(info)}>
-//       {profile.name}
-//     </div>)
+//   const result = <div onClick={() => console.log(info)}>{profile.name}</div>;
 
-//   return result
-// }, )
+//   return result;
+// });
+// ************************************************************
 
+//* 17 Что выведет при клике на кнопку и почему
 // const Counter = () => {
 //   const [count, setCount] = useState(0);
 
 //   const clickHandler = () => {
-//     setCount(count + 1)
-//     setCount(count + 1)
-//     setCount(count + 1)
-//     setCount(count + 1)
-//   }
+//     setCount(count + 1);
+//     setCount(count + 1);
+//     setCount(count + 1);
+//     setCount(count + 1);
+//   };
 
-//   return <button onClick={clickHandler}>{count}</button> // 1
-// }
+//   return <button onClick={clickHandler}>{count}</button>; // 1
+// };
+// ************************************************************
