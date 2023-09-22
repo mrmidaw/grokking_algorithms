@@ -1,4 +1,3 @@
-//* tsc algorithm.ts
 //* node algorithm.js
 
 //* 1. Бинарный поиск
@@ -125,15 +124,12 @@
 // ************************************************************
 
 //* 6. Графы. Поиск в ширину
-interface Graph<T> {
-  [key: string]: T[];
-}
 
-const personIsSeller = (name: string): boolean => {
+const personIsSeller = (name) => {
   return name.endsWith("m");
 };
 
-const graph: Graph<string> = {};
+const graph = {};
 graph.you = ["alice", "bob", "claire"];
 graph.bob = ["anuj", "peggy"];
 graph.alice = ["peggy"];
@@ -143,12 +139,10 @@ graph.peggy = [];
 graph.thom = [];
 graph.jonny = [];
 
-const search = (name: string): boolean => {
+const search = (name) => {
   let searchQueue = graph[name];
   //* С помощью этого массива вы можете отслеживать, каких людей вы искали раньше.
   const searched = [];
-
-  console.log(searchQueue);
 
   while (searchQueue.length > 0) {
     const person = searchQueue.shift();
@@ -159,7 +153,7 @@ const search = (name: string): boolean => {
         return true;
       } else {
         searchQueue = searchQueue.concat(graph[person]);
-        // Marks this person as searched
+        //* Отмечает этого человека как разыскиваемого
         searched.push(person);
       }
     }
