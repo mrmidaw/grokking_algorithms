@@ -2,7 +2,7 @@
 
 //* 1
 // console.log(typeof (function () {})());
-// 456
+// undefined
 // ************************************************************
 
 //* 2
@@ -125,8 +125,8 @@
 //* 10 Написать необязательный union тип для роли
 // interface User {
 //   name: string;
-//   id: number:
-//   role: ??????
+//   id: number;
+//   role?: 'admin' | 'user';
 // }
 // ************************************************************
 
@@ -238,4 +238,57 @@
 
 //   return <button onClick={clickHandler}>{count}</button>; // 1
 // };
+// ************************************************************
+
+//* 18 Что выведет при клике на кнопку и почему
+// const users = [
+//   { id: 1, name: "Ваня" },
+//   { id: 2, name: "Игорь" },
+//   { id: 3, name: "Петр" },
+// ];
+
+// const posts = [
+//   { id: 1, userId: 1, message: "текст 1" },
+//   { id: 2, userId: 2, message: "текст 2" },
+//   { id: 3, userId: 3, message: "текст 3" },
+// ];
+
+// const comments = [
+//   { id: 1, postId: 1, message: "коммент 1" },
+//   { id: 2, postId: 2, message: "коммент 2" },
+//   { id: 3, postId: 3, message: "коммент 3" },
+// ];
+
+// // Задача: Получить[
+// //   {
+// //     id: 1,
+// //     name: "Ваня",
+// //     message: "текст 1"
+// //     comment: { id: 1, postId: 1, message: "коммент 1" },
+// //   }
+// // ];
+
+// const resultArr = [];
+
+// comments.forEach((comment, index) => {
+//   const resObj = {};
+
+//   posts.forEach((post, index) => {
+//     if (post.id === comment.postId) {
+//       resObj.comment = comment;
+//       resObj.message = post.message;
+//     }
+
+//     users.forEach((user, index) => {
+//       if (user.id === post.userId) {
+//         resObj.userId = user.id;
+//         resObj.userName = user.name;
+//       }
+//     });
+//   });
+
+//   resultArr.push(resObj);
+// });
+
+// console.log(resultArr);
 // ************************************************************
