@@ -240,7 +240,16 @@
 // };
 // ************************************************************
 
-//* 18 Что выведет при клике на кнопку и почему
+//* 18 Задача получить на выходе:
+//* [
+//*   {
+//*    id: 1,
+//*     name: "Ваня",
+//*     message: "текст 1"
+//*     comment: { id: 1, postId: 1, message: "коммент 1" },
+//*   }
+//* ];
+
 // const users = [
 //   { id: 1, name: "Ваня" },
 //   { id: 2, name: "Игорь" },
@@ -258,15 +267,6 @@
 //   { id: 2, postId: 2, message: "коммент 2" },
 //   { id: 3, postId: 3, message: "коммент 3" },
 // ];
-
-// // Задача: Получить[
-// //   {
-// //     id: 1,
-// //     name: "Ваня",
-// //     message: "текст 1"
-// //     comment: { id: 1, postId: 1, message: "коммент 1" },
-// //   }
-// // ];
 
 // const resultArr = [];
 
@@ -291,4 +291,27 @@
 // });
 
 // console.log(resultArr);
+// ************************************************************
+
+//* 19 Задача получить на выходе:
+//* {
+//*     Nike: [ 'Alice', 'John' ],
+//*     Reebok: [ 'Alice', 'Bob' ],
+//*     Adidas: [ 'Alice', 'Tyler' ],
+//*     Timberland: [ 'Bob', 'Tyler' ]
+//* }
+
+// const _data = [
+//   { name: "Alice", brands: ["Nike", "Reebok", "Adidas"] },
+//   { name: "Bob", brands: ["Reebok", "Timberland"] },
+//   { name: "John", brands: ["Nike"] },
+//   { name: "Tyler", brands: ["Timberland", "Adidas"] },
+// ];
+
+// const transformArr = (array) => {
+//   [].reduce((acc, cur) => {}, {});
+// };
+
+// console.log(transformArr(_data));
+
 // ************************************************************
